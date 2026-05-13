@@ -1,0 +1,12 @@
+import hashlib
+
+message = "Blockchain Developer"
+
+# Create SHA-256 hash object
+hash_object = hashlib.sha256(message.encode())
+
+# Generate hexadecimal digest
+digest = hash_object.hexdigest()
+
+print("Original Message:", message)
+print("SHA-256 Digest:", digest)
