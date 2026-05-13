@@ -1,0 +1,21 @@
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_OAEP
+
+# Generate RSA Key Pair
+key = RSA.generate(2048)
+private_key = key
+public_key = key.publickey()
+
+message = "Hello RSA"
+
+# Encryption
+cipher = PKCS1_OAEP.new(public_key)
+encrypted_message = cipher.encrypt(message.encode())
+
+print("Encrypted Message:", encrypted_message)
+
+# Decryption
+cipher = PKCS1_OAEP.new(private_key)
+decrypted_message = cipher.decrypt(encrypted_message)
+
+print("Decrypted Message:", decrypted_message.decode())
